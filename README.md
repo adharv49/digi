@@ -1,2 +1,9 @@
-# Leffa
-Learning Flow Fields in Attention for Controllable Person Image Generation
+title: Leffa
+emoji: 🤗
+colorFrom: indigo
+colorTo: blue
+sdk: gradio
+sdk_version: 4.40.0
+app_file: app.py
+pinned: false
+license: mit
