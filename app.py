@@ -219,4 +219,4 @@ if __name__ == "__main__":
                 pose_transfer_gen_button.click(fn=leffa_predict_pt, inputs=[
                     pt_src_image, pt_ref_image], outputs=[pt_gen_image])
 
-        demo.launch(share=True, server_port=7860)
+        demo.launch()
