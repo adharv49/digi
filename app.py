@@ -103,7 +103,7 @@ if __name__ == "__main__":
     title = "## Leffa: Learning Flow Fields in Attention for Controllable Person Image Generation"
     description = "Leffa is a unified framework for controllable person image generation that enables precise manipulation of both appearance (i.e., virtual try-on) and pose (i.e., pose transfer)."
 
-    with gr.Blocks(theme=gr.themes.Default(primary_hue=gr.themes.colors.pink, secondary_hue=gr.themes.colors.red)).queue() as demo:
+    with gr.Blocks(theme=gr.themes.Default(primary_hue=gr.themes.colors.pink, secondary_hue=gr.themes.colors.red)) as demo:
         gr.Markdown(title)
         gr.Markdown(description)
 
@@ -219,4 +219,4 @@ if __name__ == "__main__":
                 pose_transfer_gen_button.click(fn=leffa_predict_pt, inputs=[
                     pt_src_image, pt_ref_image], outputs=[pt_gen_image])
 
-        demo.launch()
+        demo.queue().launch(share=True, show_error=True)
