@@ -103,6 +103,7 @@ if __name__ == "__main__":
     title = "## Leffa: Learning Flow Fields in Attention for Controllable Person Image Generation"
     link = "[📚 Paper](https://arxiv.org/abs/2412.08486) - [🔥 Demo](https://huggingface.co/spaces/franciszzj/Leffa) - [🤗 Model](https://huggingface.co/franciszzj/Leffa)"
     description = "Leffa is a unified framework for controllable person image generation that enables precise manipulation of both appearance (i.e., virtual try-on) and pose (i.e., pose transfer)."
+    note = "Note: The models used in the demo are trained solely on academic datasets. Virtual try-on uses VITON-HD, and pose transfer uses DeepFashion."
 
     with gr.Blocks(theme=gr.themes.Default(primary_hue=gr.themes.colors.pink, secondary_hue=gr.themes.colors.red)).queue() as demo:
         gr.Markdown(title)
@@ -220,5 +221,7 @@ if __name__ == "__main__":
 
                 pose_transfer_gen_button.click(fn=leffa_predict_pt, inputs=[
                     pt_src_image, pt_ref_image], outputs=[pt_gen_image])
+
+        gr.Markdown(note)
 
         demo.launch(share=True, server_port=7860)
