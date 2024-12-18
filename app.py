@@ -121,7 +121,9 @@ if __name__ == "__main__":
     garment_images = list_dir(f"{example_dir}/garment")
 
     title = "## Leffa: Learning Flow Fields in Attention for Controllable Person Image Generation"
-    link = "[📚 Paper](https://arxiv.org/abs/2412.08486) - [🤖 Code](https://github.com/franciszzj/Leffa) - [🔥 Demo](https://huggingface.co/spaces/franciszzj/Leffa) - [🤗 Model](https://huggingface.co/franciszzj/Leffa)"
+    link = """[📚 Paper](https://arxiv.org/abs/2412.08486) - [🤖 Code](https://github.com/franciszzj/Leffa) - [🔥 Demo](https://huggingface.co/spaces/franciszzj/Leffa) - [🤗 Model](https://huggingface.co/franciszzj/Leffa)
+            Star ⭐ us if you like it!
+            """
     news = """## News
             - 18/Dec/2024, thanks to @[StartHua](https://github.com/StartHua) for integrating Leffa into ComfyUI! Here is the [repo](https://github.com/StartHua/Comfyui_leffa)!
             - 16/Dec/2024, the virtual try-on [model](https://huggingface.co/franciszzj/Leffa/blob/main/virtual_tryon_dc.pth) trained on DressCode is released.
