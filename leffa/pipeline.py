@@ -48,7 +48,7 @@ class LeffaPipeline(object):
         ref_image,
         mask,
         densepose,
-        ref_acceleration=True,
+        ref_acceleration=False,
         num_inference_steps=50,
         do_classifier_free_guidance=True,
         guidance_scale=2.5,
@@ -182,7 +182,7 @@ class LeffaPipeline(object):
             mask = numpy_to_pil(mask)
             mask = [i.convert("RGB") for i in mask]
             gen_image = [
-                repaint(_src_image, _mask, _gen_image)
+                do_repaint(_src_image, _mask, _gen_image)
                 for _src_image, _mask, _gen_image in zip(src_image, mask, gen_image)
             ]
 
@@ -216,7 +216,7 @@ def numpy_to_pil(images):
     return pil_images
 
 
-def repaint(person, mask, result):
+def do_repaint(person, mask, result):
     _, h = result.size
     kernal_size = h // 100
     if kernal_size % 2 == 0:
