@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Stylist Assistant</title>
+       <!--link rel="stylesheet" href="/Leffa/static/scss/style.css"-->
+       <link rel="stylesheet" href="{{url_for('static', filename='scss/style.css')}}">
+</head>
+<body>
+    <header class="header">
+        <div class="overlay has-fade"></div>
+
+        <nav class="flex flex-ai-c">
+            <a href="index.html">
+                <h1 class="brand-text">Allure</h1>
+            </a>
+        
+            <div class="header__links hide-for-mobile">
+                <a href="/">Home</a>
+                <a href="http://">How It Works</a>
+                <a href="http://">Features</a>
+            </div>
+            
+            <div class="flex flex-ai-c">
+                <!-- Enhanced feature navigation -->
+                <div class="header__features hide-for-mobile">
+                    <a href="{{ url_for('glasstryon') }}" class="feature-item">
+                        <img class="feature-icon" src="{{ url_for('static', filename='images/sunglasses.png') }}" alt="Face Analysis">
+                        <span class="feature-label">Glass Try-On</span>
+                    </a>
+                    <a href="{{ url_for('face_type') }}" class="feature-item">
+                        <img class="feature-icon" src="{{ url_for('static', filename='images/face.png') }}" alt="Face Analysis">
+                        <span class="feature-label">Face Analysis</span>
+                    </a>
+                    <a href="{{ url_for('try_on') }}" class="feature-item">
+                        <img class="feature-icon" src="{{ url_for('static', filename='images/ai.png') }}" alt="Virtual Try-On">
+                        <span class="feature-label">Outfit Try-On</span>
+                    </a>
+                    <a href="{{ url_for('recommend') }}" class="feature-item">
+                        <img class="feature-icon" src="{{ url_for('static', filename='images/body.png') }}" alt="Outfit Recommendations">
+                        <span class="feature-label">Style Recommendations</span>
+                    </a>
+                </div>
+            </div>
+        
+            <a id="btn_ham" class="header__ham-toggle hide-for-desktop">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </nav>
+
+        <div class="header__menu has-fade hide-for-desktop flex flex-ai-c flex-jc-c flex-dir-c">
+            <a href="/">Home</a>
+            <a href="">How It Works</a>
+            <a href="http://">Features</a>
+            
+            <!-- Mobile menu features -->
+            <div class="mobile-features">
+                <a href="" class="mobile-feature-item">
+                    <img class="mobile-feature-icon" src="{{ url_for('static', filename='images/face.png') }}" alt="Face Analysis">
+                    <span class="mobile-feature-label">Face Analysis</span>
+                </a>
+                <a href="" class="mobile-feature-item">
+                    <img class="mobile-feature-icon" src="{{ url_for('static', filename='images/ai.png') }}" alt="Virtual Try-On">
+                    <span class="mobile-feature-label">Virtual Try-On</span>
+                </a>
+                <a href="" class="mobile-feature-item">
+                    <img class="mobile-feature-icon" src="{{ url_for('static', filename='images/body.png') }}" alt="Outfit Recommendations">
+                    <span class="mobile-feature-label">Style Recommendations</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h2 class="hero-text">Discover Your Perfect Style</h2>
+                <p class="hero-tagline">Allure is your style partner, shaping looks that bring out the real you.</p>
+                <button id="getStartedBtn" class="continue-button flex flex-dir-r flex-jc-c flex-ai-c">Get Started </button>
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="authForm">
+                <div class="form-header">
+                    <h2 id="formTitle">Welcome to Allure</h2>
+                    <p id="formSubtitle">Create your free account</p>
+                </div>
+                
+                <form id="authFormContent" onsubmit="return handleAuth(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+    
+                    <button type="submit" id="submitBtn">
+                        <span id="buttonText">Continue</span>
+                        <div class="loading-spinner"></div>
+                    </button>
+                    
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <p id="toggleText">Already have an account? <a href="#" onclick="toggleForm()">Sign in here</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal handling
+        const modal = document.getElementById('authModal');
+        const btn = document.getElementById('getStartedBtn');
+        const span = document.getElementsByClassName("close")[0];
+    
+        btn.onclick = () => modal.style.display = "block";
+        span.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = "none";
+        }
+    
+        // Initialize login state
+        let isLogin = false;
+    
+        // Updated toggleForm function
+        function toggleForm() {
+            isLogin = !isLogin;
+            const form = document.getElementById('authFormContent');
+            
+            document.getElementById('formTitle').textContent = isLogin ? 'Welcome Back' : 'Welcome to Allure';
+            document.getElementById('formSubtitle').textContent = isLogin ? 'Sign in to continue' : 'Create your free account';
+            document.getElementById('submitBtn').querySelector('#buttonText').textContent = isLogin ? 'Sign In' : 'Create Account';
+            document.getElementById('toggleText').innerHTML = isLogin ? 
+                "Don't have an account? <a href='#' onclick='toggleForm()'>Sign up here</a>" :
+                "Already have an account? <a href='#' onclick='toggleForm()'>Sign in here</a>";
+                
+            form.reset();
+        }
+    
+        // Enhanced handleAuth with loading state
+        async function handleAuth(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const spinner = btn.querySelector('.loading-spinner');
+    const buttonText = btn.querySelector('#buttonText');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const isLogin = document.getElementById('toggleText').innerHTML.includes('Sign in here');
+
+    buttonText.style.opacity = '0.5';
+    spinner.style.display = 'block';
+
+    try {
+        const endpoint = isLogin ? '/login' : '/signup';
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+        });
+
+        const data = await response.json();
+        if (!data.success) throw new Error(data.error);
+
+        // Redirect to face_type after successful auth
+        window.location.href = data.next_url;
+    } catch (error) {
+        const errorElement = document.createElement('div');
+        errorElement.className = 'error-message';
+        errorElement.textContent = error.message;
+        errorElement.style.color = '#e74c3c';
+        errorElement.style.marginTop = '1rem';
+        
+        const form = document.getElementById('authFormContent');
+        const existingErrors = form.getElementsByClassName('error-message');
+        while(existingErrors[0]) existingErrors[0].remove();
+        
+        form.appendChild(errorElement);
+        setTimeout(() => errorElement.remove(), 3000);
+    } finally {
+        buttonText.style.opacity = '1';
+        spinner.style.display = 'none';
+    }
+}
+    </script>
+     <script src="{{ url_for('static', filename='js/head_menu_func.js') }}"></script>
+     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
