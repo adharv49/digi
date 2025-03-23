@@ -1,3 +1,5 @@
+Flask
+google-generativeai
 av
 accelerate
 config
