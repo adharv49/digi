@@ -98,7 +98,9 @@ CLOTH_OPTIONS = {
     "Cloth 128": "/content/digi/samplecloth/shorty.jpg"
 }
 
-def run(cloth_key, model):
+def run(request: gr.Request,cloth_key, model):
+    query_params = request.query_params
+    cloth_key = query_params.get("cloth", "Cloth 1")
     image_path = CLOTH_OPTIONS.get(cloth_key, None)
     if not image_path:
         return "Invalid Cloth Selection", None
