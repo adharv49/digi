@@ -1,0 +1,38 @@
+$primary: #242423;
+$bg: #FAF9F6;
+
+//Font Sizes
+
+$font-sm: 0.875rem;  //14px   
+$font-med: 1.125rem; //18px
+$font-lg: 1.5rem;  //24px
+$font-exlg: 2.25rem; //36px
+
+//Fonts
+
+@font-face {
+    font-family: "Jassin";
+    src: url('../fonts/Jassin.ttf');
+}
+
+@font-face {
+    font-family: "NohemiExtraBold";
+    src: url('../fonts/Nohemi-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: "NohemiExtraLight";
+    src: url('../fonts/Nohemi-Light.otf');
+}
+
+@font-face {
+    font-family: "NohemiLight";
+    src: url('../fonts/Nohemi-VF.ttf');
+}
+
+@font-face {
+    font-family: "AustralianSign";
+    src: url('../fonts/Australian-Signature.otf');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap');
