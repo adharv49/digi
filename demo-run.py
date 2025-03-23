@@ -68,35 +68,37 @@ def convert_png_to_jpg(input_path, output_path):
         print("Conversion completed.")
 
 # Predefined clothing options
+
 CLOTH_OPTIONS = {
-    "Cloth 101": "/content/digi/samplecloth/01_upper.jpg",
-    "Cloth 102": "/content/digi/samplecloth/tantra.jpg",
-    "Cloth 103": "/content/digi/samplecloth/09163_00.jpg",
-    "Cloth 104": "/content/digi/samplecloth/09176_00.jpg",
-    "Cloth 105": "/content/digi/samplecloth/09236_00.jpg",
-    "Cloth 106": "/content/digi/samplecloth/09290_00.jpg",
-    "Cloth 107": "/content/digi/samplecloth/clothing1.jpg",
-    "Cloth 108": "/content/digi/samplecloth/brown-jacket.jpg",
-    "Cloth 109": "/content/digi/samplecloth/boys-Puffer-Coat-With-Detachable-Hood-1.jpg",
-    "Cloth 110": "/content/digi/samplecloth/boys-Puffer-Coat-With-Detachable-Hood-2.jpg",
-    "Cloth 111": "/content/g-polos-tshirt-2.png",  # This path was unchanged
-    "Cloth 112": "/content/digi/samplecloth/tantra.jpg",
-    "Cloth 113": "/content/digi/samplecloth/pink-jacket.jpg",
-    "Cloth 115": "/content/digi/samplecloth/Man-Geox-Winter-jacket-1.jpg",
-    "Cloth 116": "/content/digi/samplecloth/black-hoodie.jpg",
-    "Cloth 117": "/content/digi/samplecloth/yellow-hoodie.png",
-    "Cloth 118": "/content/digi/samplecloth/purple-hoodie.jpg",
-    "Cloth 119": "/content/digi/samplecloth/b-shirt.jpg",
-    "Cloth 120": "/content/digi/samplecloth/blue-hoodie.jpg",
-    "Cloth 121": "/content/digi/samplecloth/hh1.png",
-    "Cloth 122": "/content/digi/samplecloth/wed-try.jpg",
-    "Cloth 123": "/content/digi/samplecloth/green-shirt.jpg",
-    "Cloth 124": "/content/digi/samplecloth/green-top.jpg",
-    "Cloth 125": "/content/digi/samplecloth/green-top2.jpg",
-    "Cloth 126": "/content/digi/samplecloth/black-top.jpg",
-    "Cloth 127": "/content/digi/samplecloth/black-top2.jpg",
-    "Cloth 128": "/content/digi/samplecloth/shorty.jpg"
+    "Cloth 101": "/teamspace/studios/this_studio/digi/samplecloth/01_upper.jpg",
+    "Cloth 102": "/teamspace/studios/this_studio/digi/samplecloth/tantra.jpg",
+    "Cloth 103": "/teamspace/studios/this_studio/digi/samplecloth/09163_00.jpg",
+    "Cloth 104": "/teamspace/studios/this_studio/digi/samplecloth/09176_00.jpg",
+    "Cloth 105": "/teamspace/studios/this_studio/digi/samplecloth/09236_00.jpg",
+    "Cloth 106": "/teamspace/studios/this_studio/digi/samplecloth/09290_00.jpg",
+    "Cloth 107": "/teamspace/studios/this_studio/digi/samplecloth/clothing1.jpg",
+    "Cloth 108": "/teamspace/studios/this_studio/digi/samplecloth/brown-jacket.jpg",
+    "Cloth 109": "/teamspace/studios/this_studio/digi/samplecloth/boys-Puffer-Coat-With-Detachable-Hood-1.jpg",
+    "Cloth 110": "/teamspace/studios/this_studio/digi/samplecloth/boys-Puffer-Coat-With-Detachable-Hood-2.jpg",
+    "Cloth 111": "/teamspace/studios/this_studio/digi/samplecloth/g-polos-tshirt-2.png",
+    "Cloth 112": "/teamspace/studios/this_studio/digi/samplecloth/tantra.jpg",
+    "Cloth 113": "/teamspace/studios/this_studio/digi/samplecloth/pink-jacket.jpg",
+    "Cloth 115": "/teamspace/studios/this_studio/digi/samplecloth/Man-Geox-Winter-jacket-1.jpg",
+    "Cloth 116": "/teamspace/studios/this_studio/digi/samplecloth/black-hoodie.jpg",
+    "Cloth 117": "/teamspace/studios/this_studio/digi/samplecloth/yellow-hoodie.png",
+    "Cloth 118": "/teamspace/studios/this_studio/digi/samplecloth/purple-hoodie.jpg",
+    "Cloth 119": "/teamspace/studios/this_studio/digi/samplecloth/b-shirt.jpg",
+    "Cloth 120": "/teamspace/studios/this_studio/digi/samplecloth/blue-hoodie.jpg",
+    "Cloth 121": "/teamspace/studios/this_studio/digi/samplecloth/hh1.png",
+    "Cloth 122": "/teamspace/studios/this_studio/digi/samplecloth/wed-try.jpg",
+    "Cloth 123": "/teamspace/studios/this_studio/digi/samplecloth/green-shirt.jpg",
+    "Cloth 124": "/teamspace/studios/this_studio/digi/samplecloth/green-top.jpg",
+    "Cloth 125": "/teamspace/studios/this_studio/digi/samplecloth/green-top2.jpg",
+    "Cloth 126": "/teamspace/studios/this_studio/digi/samplecloth/black-top.jpg",
+    "Cloth 127": "/teamspace/studios/this_studio/digi/samplecloth/black-top2.jpg",
+    "Cloth 128": "/teamspace/studios/this_studio/digi/samplecloth/shorty.jpg"
 }
+
 
 def run(request: gr.Request,cloth_key, model):
     query_params = request.query_params
