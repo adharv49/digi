@@ -1,0 +1,111 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    background-color: $primary;
+
+    &.open {
+
+        .header__ham-toggle {
+            >span:first-child {
+                transform: rotate(45deg);
+            }
+
+            >span:nth-child(2) {
+                opacity: 0;
+            }
+
+            >span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+
+    }
+
+
+    .overlay {
+        z-index: 100;
+        opacity: 0;
+        position: fixed;
+        top: 5rem;
+        right: 0rem;
+        bottom: 0rem;
+        left: 0rem;
+        background-color: #212121;
+        background-image: linear-gradient(#212121, transparent);
+
+    }
+
+    nav {
+        position: relative;
+        padding: 1.0625rem;
+        z-index: 100;
+
+        .brand-text{
+            font-family: "Jassin";
+            color: $bg;
+            font-size: 3rem;
+            font-weight: 100;
+        }
+
+    }
+
+    &__ham-toggle {
+        >span {
+            position: relative;
+            display: block;
+            width: 1.5rem;
+            height: 0.2rem;
+            background-color: $primary;
+            transition: all 300ms ease-in-out;
+            transform-origin: 0.2rem;
+            z-index: 100;
+
+            &:not(:last-child) {
+                margin-bottom: 3px;
+            }
+
+        }
+
+
+    }
+
+    &__links {
+        position: relative;
+        left: -4rem;
+
+        a {
+            font-size: 1.3rem;
+            color: $primary;
+            font-weight: 600;
+            color: $bg;
+
+            &:not(:last-child) {
+                margin-right: 3rem;
+            }
+        }
+
+    }
+
+    &__menu {
+        z-index: 100;
+        position: absolute;
+        background-color: $primary;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        width: 100%;
+
+        a {
+            color: #212121;
+            padding: $font-lg;
+            font-weight: bolder;
+        }
+    }
+
+    &__spans {
+        padding-right: 6rem;
+    }
+
+
+}
