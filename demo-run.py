@@ -123,7 +123,7 @@ def run(cloth_key, model):
 with gr.Blocks() as demo:
     gr.Markdown("# DigiDrape Virtual Try-On System")
 
-    cloth_key_input = gr.Dropdown(choices=list(CLOTH_OPTIONS.keys()), label="Select a Garment")
+    cloth_key_input =gr.Textbox(label="Cloth Key", value=None, visible=False)
     human_image_input = gr.Image(label="Upload Human Image", type="pil")
     cloth_image_output = gr.Image(label="Selected Cloth")
     combined_image_output = gr.Image(label="Generated Try-On Image")
