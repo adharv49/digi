@@ -1,3 +1,4 @@
+tensortflow
 Flask
 google-generativeai
 av
